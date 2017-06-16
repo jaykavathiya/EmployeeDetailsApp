@@ -4,7 +4,7 @@
             this.employeeData="";
             this.index=-1;
             var deferred = $q.defer();
-            $http.get("employee.json").then(function(data){
+            $http.get("./mockData/employee.json").then(function(data){
                 deferred.resolve(data);
             });
             this.getData = function()

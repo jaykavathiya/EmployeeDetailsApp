@@ -1,17 +1,19 @@
-<table class="table table-bordered">
-   <tr>
-       <th>Employee ID</th>
-       <th>Employee Name</th>
-       <th>BirthDate</th>
-       <th>age</th>
-       <th>&nbsp</th>
-  </tr> 
-  <tr ng-repeat="data in displayData">
-    <td>{{data.employee_id}}</td>
-    <td>{{data.employee_fname + " "}}{{data.employee_mname + " "}}{{data.employee_lname}}</td>
-    <td>{{data.birth_date | date:'MM/dd/yyyy'}}</td>
-    <td>{{data.age}}</td>
-    <td><button type="button" ng-click="edit($indedata)" class="btn btn-primary">Edit</button>&nbsp;&nbsp;<button type="button" class="btn btn-primary" ng-click="removeRow($indedata)">Remove</button></td>
-  </tr> 
- </table>
-<button type="button" class="btn btn-primary" style="float:right" ng-click="add()">Add Employee</button>
+<div class="container">
+    <table class="table table-hover">
+       <tr>
+           <th>Employee ID</th>
+           <th>Employee Name</th>
+           <th>BirthDate</th>
+           <th>age</th>
+           <th>&nbsp</th>
+      </tr>
+      <tr ng-repeat="data in displayData">
+        <td>{{data.employee_id}}</td>
+        <td>{{data.employee_fname + " "}}{{data.employee_mname + " "}}{{data.employee_lname}}</td>
+        <td>{{data.birth_date | date:'MM/dd/yyyy'}}</td>
+        <td>{{data.age}}</td>
+        <td><button type="button" ng-click="edit($indedata)" class="btn btn-info">Edit</button>&nbsp;&nbsp;<button type="button" class="btn btn-danger" ng-click="removeRow($indedata)">Remove</button></td>
+      </tr>
+     </table>
+     <button type="button" class="btn btn-primary" style="float:right" ng-click="add()">Add Employee</button>
+</div>

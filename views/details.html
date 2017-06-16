@@ -1,58 +1,58 @@
 <div class="row row-content">
-<div class="col-xs-12 col-sm-offset-2">
-  <form class="form-horizontal" role="form" name="dform" novalidate>
-     <div class="form-group">
-         <label for="eid" class="col-sm-2 control-label">Employee ID</label>                        
-       <div class="col-sm-3">
-         <input type="text" class="form-control" id="eid" name="eid" ng-model="user.employee_id" placeholder="Employee ID" required>
-      </div>
+    <div class="col-xs-12 col-sm-offset-2">
+        <form class="form-horizontal" role="form" name="dform" novalidate>
+            <div class="form-group">
+                <label for="eid" class="col-sm-2 control-label">Employee ID</label>
+                <div class="col-sm-3">
+                    <input type="text" class="form-control" id="eid" name="eid" ng-model="user.employee_id" placeholder="Employee ID" required>
+                </div>
+            </div>
+            <div class="form-group"  ng-class="{'has-error' : dform.firstname.$invalid && !dform.firstname.$pristine}">
+                <label for="firstname" class="col-sm-2 control-label">First Name</label>
+                <div class="col-sm-3">
+                    <input type="text" class="form-control" id="firstname" name="firstname" ng-model="user.employee_fname" ng-maxlength="15" ng-pattern="/^[a-zA-Z]+$/" placeholder="Enter First Name" ng-pattern="/^[a-zA-Z]/" required>
+                </div>
+                <span class="help-block" ng-show="dform.firstname.$error.required && dform.firstname.$dirty">Required</span>
+                <span class="help-block" ng-show="dform.firstname.$error.maxlength">Length is not more than 15</span>
+                <span class="help-block" ng-show="dform.firstname.$error.pattern">Only alphabetical</span>
+            </div>
+            <div class="form-group">
+                <label for="middlename" class="col-sm-2 control-label">Middle Name</label>
+                <div class="col-sm-3">
+                    <input type="text" class="form-control" id="middlename" name="middlename" ng-model="user.employee_mname" placeholder="Enter Middle Initial">
+                </div>
+            </div>
+            <div class="form-group" ng-class="{'has-error' : dform.lastname.$invalid && !dform.lastname.$pristine}">
+                <label for="lastname" class="col-sm-2 control-label">Last Name</label>
+                <div class="col-sm-3">
+                    <input type="text" class="form-control" id="lastname" name="lastname" ng-model="user.employee_lname" ng-maxlength="15" ng-pattern="/^[a-zA-Z]+$/" placeholder="Enter Last Name" required>
+                </div>
+                <span class="help-block" ng-show="dform.lastname.$error.required && dform.lastname.$dirty">Required</span>
+                <span class="help-block" ng-show="dform.lastname.$error.maxlength">Length is not more than 15</span>
+                <span class="help-block" ng-show="dform.lastname.$error.pattern">Only alphabetical</span>
+            </div>
+            <div class="form-group" ng-class="{'has-error' : dform.lastname.$invalid && !dform.lastname.$pristine}">
+                <label for="bday" class="col-sm-2 control-label">Birthday</label>
+                <div class="col-sm-3">
+                    <input type="date" class="form-control" id="bday" name="bday" ng-model="user.birth_date" required>
+                </div>
+                <span class="help-block" ng-show="dform.bday.$error.required && dform.bday.$dirty">Required</span>
+            </div>
+            <div class="form-group">
+                <div class="col-sm-offset-2 col-sm-3">
+                    <button type="submit" class="form-control btn btn-primary" ng-click="add_employee()" ng-disabled="isclick">Save</button>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-sm-offset-2 col-sm-3">
+                    <button type="button" class="form-control btn btn-warning" ng-click="cancel()">Cancel</button>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-sm-offset-2 col-sm-3">
+                    <button type="button" class="form-control btn btn-info" ng-click="update()">Update</button>
+                </div>
+            </div>
+        </form>
     </div>
-      <div class="form-group"  ng-class="{'has-error' : dform.firstname.$invalid && !dform.firstname.$pristine}">
-         <label for="firstname" class="col-sm-2 control-label">First Name</label>                        
-       <div class="col-sm-3">
-         <input type="text" class="form-control" id="firstname" name="firstname" ng-model="user.employee_fname" ng-maxlength="15" ng-pattern="/^[a-zA-Z]+$/" placeholder="Enter First Name" ng-pattern="/^[a-zA-Z]/" required>
-      </div>
-      <span class="help-block" ng-show="dform.firstname.$error.required && dform.firstname.$dirty">Required</span>
-      <span class="help-block" ng-show="dform.firstname.$error.maxlength">Length is not more than 15</span> 
-      <span class="help-block" ng-show="dform.firstname.$error.pattern">Only alphabetical</span>      
-    </div>
-     <div class="form-group">
-         <label for="middlename" class="col-sm-2 control-label">Middle Name</label>                        
-       <div class="col-sm-3">
-         <input type="text" class="form-control" id="middlename" name="middlename" ng-model="user.employee_mname" placeholder="Enter Middle Initial">
-       </div>
-    </div>
-    <div class="form-group" ng-class="{'has-error' : dform.lastname.$invalid && !dform.lastname.$pristine}">
-         <label for="lastname" class="col-sm-2 control-label">Last Name</label>                        
-       <div class="col-sm-3">
-         <input type="text" class="form-control" id="lastname" name="lastname" ng-model="user.employee_lname" ng-maxlength="15" ng-pattern="/^[a-zA-Z]+$/" placeholder="Enter Last Name" required>
-       </div>
-       <span class="help-block" ng-show="dform.lastname.$error.required && dform.lastname.$dirty">Required</span>
-       <span class="help-block" ng-show="dform.lastname.$error.maxlength">Length is not more than 15</span> 
-       <span class="help-block" ng-show="dform.lastname.$error.pattern">Only alphabetical</span>  
-    </div>
-    <div class="form-group" ng-class="{'has-error' : dform.lastname.$invalid && !dform.lastname.$pristine}">
-         <label for="bday" class="col-sm-2 control-label">Birthday</label>                        
-       <div class="col-sm-3">
-         <input type="date" class="form-control" id="bday" name="bday" ng-model="user.birth_date" required>
-       </div>
-         <span class="help-block" ng-show="dform.bday.$error.required && dform.bday.$dirty">Required</span>
-    </div>
-   <div class="form-group">
-      <div class="col-sm-offset-2 col-sm-3">
-    <button type="submit" class="form-control btn btn-primary" ng-click="add_employee()" ng-disabled="isclick">Save</button>
-      </div>
-    </div>
-     <div class="form-group">
-      <div class="col-sm-offset-2 col-sm-3">
-    <button type="button" class="form-control btn btn-primary" ng-click="cancel()">Cancel</button>
-      </div>
-    </div> 
-    <div class="form-group">
-      <div class="col-sm-offset-2 col-sm-3">
-    <button type="button" class="form-control btn btn-primary" ng-click="update()">Update</button>
-      </div>
-    </div>  
-  </form>
-  </div>
-</div>  
+</div>
