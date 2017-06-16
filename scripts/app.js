@@ -1,13 +1,13 @@
 (function(){
-	angular.module("myApp",['ngRoute'])
+	angular.module("app",['ngRoute'])
 		.config(function($routeProvider) {
 			$routeProvider.when("/", {
 				templateUrl : "views/home.html",
-				controller:	"myCtrl"
+				controller:	"EmployeeListController"
 			});
 			$routeProvider.when("/details", {
 				templateUrl : "views/details.html",
-				controller : "myCtrl1"
+				controller : "EmployeeDetailController"
 			})
 		});
 })();

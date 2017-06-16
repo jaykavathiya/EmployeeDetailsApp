@@ -2,60 +2,54 @@
  * Created by Jay on 6/16/2017.
  */
 (function () {
-    angular.module('myApp')
-        .controller('myCtrl', function($scope,eService,$location) {
-            var promise = eService.getData();
+    angular.module('app')
+        .controller('EmployeeListController', function($scope,employeeService,$location) {
+            var promise = employeeService.getData();
             promise.then(function(data){
-                eService.data1 = data.data;
-                $scope.data1=eService.data1;
+                employeeService.employeeData = data.data;
+                $scope.displayData=employeeService.employeeData;
             });
             $scope.removeRow = function (idx) {
-                $scope.data1.splice(idx, 1);
+                $scope.displayData.splice(idx, 1);
             };
             $scope.add = function(){
                 $location.path("/details");
-                eService.index=-1;
+                employeeService.index = -1;
             };
             $scope.edit=function(i){
                 $location.path("/details");
-                eService.index = i;
+                employeeService.index = i;
             };
         })
 
-        .controller('myCtrl1',function($scope,eService,$location){
-
+        .controller('EmployeeDetailController',function($scope,employeeService,$location){
             $scope.user={};
             $scope.add_employee=function(){
                 $scope.isclick = false;
                 $scope.user.age=calculateAge($scope.user.birth_date);
-
                 if($scope.dform.$valid){
                     $location.path("/");
                     $scope.employee = angular.copy($scope.user);
-                    eService.data1.push($scope.employee);
+                    employeeService.employeeData.push($scope.employee);
                 }
             };
-
             $scope.update=function(){
                 $location.path("/");
                 $scope.user.age = calculateAge($scope.user.birth_date);
-                eService.data1[eService.index]=angular.copy($scope.user);
+                employeeService.employeeData[employeeService.index]=angular.copy($scope.user);
             };
-
             $scope.cancel=function(){
                 $location.path("/");
             };
-
-            if(eService.index != -1){
-                var bdate=eService.data1[eService.index].birth_date;
+            if(employeeService.index != -1){
+                var bdate=employeeService.employeeData[employeeService.index].birth_date;
                 var birth=bdate.split("/");
-                $scope.user=angular.copy(eService.data1[eService.index]);
+                $scope.user=angular.copy(employeeService.employeeData[employeeService.index]);
                 $scope.user.birth_date = new Date(birth[2],birth[0]-1,birth[1]);
             }
             else{
                 $scope.user={};
             }
-
             var calculateAge= function(birthday) {
                 var today=new Date();
                 var age=today.getFullYear()-birthday.getFullYear();
