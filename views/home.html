@@ -1,17 +1,17 @@
 <table class="table table-bordered">
    <tr>
-   <th>Employee ID</th>
-   <th>Employee Name</th>
-   <th>BirthDate</th>
-   <th>age</th>
-   <th>&nbsp</th>
+       <th>Employee ID</th>
+       <th>Employee Name</th>
+       <th>BirthDate</th>
+       <th>age</th>
+       <th>&nbsp</th>
   </tr> 
-  <tr ng-repeat="x in data1">
-    <td>{{x.employee_id}}</td>
-    <td>{{x.employee_fname + " "}}{{x.employee_mname + " "}}{{x.employee_lname}}</td>
-    <td>{{x.birth_date | date:'MM/dd/yyyy'}}</td>
-    <td>{{x.age}}</td>
-    <td><button type="button" ng-click="edit($index)" class="btn btn-primary">Edit</button>&nbsp;&nbsp;<button type="button" class="btn btn-primary" ng-click="removeRow($index)">Remove</button></td>
+  <tr ng-repeat="data in displayData">
+    <td>{{data.employee_id}}</td>
+    <td>{{data.employee_fname + " "}}{{data.employee_mname + " "}}{{data.employee_lname}}</td>
+    <td>{{data.birth_date | date:'MM/dd/yyyy'}}</td>
+    <td>{{data.age}}</td>
+    <td><button type="button" ng-click="edit($indedata)" class="btn btn-primary">Edit</button>&nbsp;&nbsp;<button type="button" class="btn btn-primary" ng-click="removeRow($indedata)">Remove</button></td>
   </tr> 
  </table>
 <button type="button" class="btn btn-primary" style="float:right" ng-click="add()">Add Employee</button>

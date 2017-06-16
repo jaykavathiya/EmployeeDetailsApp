@@ -1,17 +1,16 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset = "utf-8">
-<meta http-equiv="X-UA-Compatible" content = "IE=edge">
-<meta name = "viewport" content="width=device-width initial-scale=1">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js"></script>
-<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-route.js"></script>
-<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-
+    <meta charset = "utf-8">
+    <meta http-equiv="X-UA-Compatible" content = "IE=edge">
+    <meta name = "viewport" content="width=device-width initial-scale=1">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-route.js"></script>
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
 </head>
-<body ng-app="myApp">
+<body ng-app="app">
 <nav class="navbar navbar-inverse navbar-fixed-top">
    <div class="container-fluid">
     <div class="navbar-header">
@@ -29,22 +28,24 @@
     </ul>
     </div>
     </nav>
-<div class="container"> 
-<div class="row">
-<p style="padding:50px;"></p>
-</div>
-<div ng-view></div>
-<footer>
     <div class="container">
-    <div class="row row-footer">
-    <div class="col-xs-12">
-            <p style="padding:10px;"></p>
-            <p align="center">© Copyright 2016 Employee Details</p>
+        <div class="row">
+            <p style="padding:50px;"></p>
+        </div>
+        <div ng-view></div>
+        <footer>
+            <div class="container">
+                <div class="row row-footer">
+                    <div class="col-xs-12">
+                        <p style="padding:10px;"></p>
+                        <p align="center">© Copyright 2016 Employee Details</p>
+                    </div>
+                </div>
+            </div>
+         </footer>
     </div>
-    </div>
- </div>
- </footer>    
- </div>
-  <script src="scripts/app.js"></script>
+    <script src="scripts/app.js"></script>
+    <script src="scripts/controllers.js"></script>
+    <script src="scripts/service.js"></script>
 </body> 
 </html>
